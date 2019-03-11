@@ -1,0 +1,20 @@
+---
+platform: linux
+
+image_resource:
+  type: registry-image
+  source: {repository: matthewmcnew/concourse-pack}
+
+params:
+  REPOSITORY: concourse/builder
+  BUILDER: packs/samples:v3alpha2
+  TAG: latest
+  APP_DIR: app
+
+inputs:
+- name: app
+
+outputs:
+- name: image
+
+run: {path: build}

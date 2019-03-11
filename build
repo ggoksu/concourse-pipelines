@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e -u
+
+source /opt/resource/common.sh
+start_docker 3 3 "" ""
+
+TAG=${TAG:-latest}
+APP_DIR=${APP_DIR:-.}
+BUILDER=${BUILDER:-.}
+
+pack build $REPOSITORY:$TAG -p $APP_DIR --builder $BUILDER
+
+docker save -o image/image.tar $REPOSITORY:$TAG
