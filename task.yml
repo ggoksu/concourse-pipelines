@@ -3,16 +3,16 @@ platform: linux
 
 image_resource:
   type: registry-image
-  source: {repository: matthewmcnew/concourse-pack}
+  source: {repository: ggoksu/docker-image-resource}
 
 params:
-  REPOSITORY: concourse/builder
-  BUILDER: packs/samples:v3alpha2
+  REPOSITORY: ((repository))
+  BUILDER: ((builder))
   TAG: latest
-  APP_DIR: app
+  APP_DIR: source-app
 
 inputs:
-- name: app
+- name: source-app
 
 outputs:
 - name: image

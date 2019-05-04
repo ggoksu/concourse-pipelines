@@ -1,0 +1,21 @@
+---
+resources:
+- name: pipelines
+  type: git
+  source:
+    uri: https://github.com/ggoksu/concourse-pipelines.git
+    branch: master
+- name: source-app
+  type: git
+  source:
+    uri: https://github.com/buildpack/sample-java-app
+    branch: master
+
+jobs:
+- name: job
+  public: true
+  plan:
+  - get: pipelines
+  - get: source-app
+  - task: hello-world
+    file: pipelines/task.yml
