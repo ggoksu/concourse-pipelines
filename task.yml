@@ -6,8 +6,8 @@ image_resource:
   source: {repository: ggoksu/docker-image-resource}
 
 params:
-  REPOSITORY: ((repository))
-  BUILDER: ((builder))
+  REPOSITORY: harbor.sandbox.demo1.pocs.pcfs.io/applications/sample_java_app
+  BUILDER: cloudfoundry/cnb:bionic
   TAG: latest
   APP_DIR: source-app
 
