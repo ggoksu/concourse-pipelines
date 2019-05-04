@@ -4,6 +4,7 @@ platform: linux
 image_resource:
   type: registry-image
   source: {repository: ggoksu/docker-image-resource}
+  privileged: true
 
 params:
   REPOSITORY: harbor.sandbox.demo1.pocs.pcfs.io/applications/sample_java_app
