@@ -6,7 +6,7 @@ env
 source /opt/resource/common.sh
 sanitize_cgroups
 start_docker \
-	"" \
+	"$REPOSITORY" \
   ""
 
 pack set-default-builder $BUILDER

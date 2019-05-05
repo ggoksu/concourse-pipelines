@@ -41,4 +41,3 @@ jobs:
         TAG: 1.0.0 # harbor'da kullanilacak tag
         REPOSITORY: ((repository)) #harbor repo
         PROJECT: ((project)) # harbor proje ismi
-        registry: ((repository)) #insecure_registry flag icin
