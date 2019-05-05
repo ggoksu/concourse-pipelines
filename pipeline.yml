@@ -1,21 +1,36 @@
 ---
+
 resources:
-- name: pipelines
-  type: git
-  source:
-    uri: https://github.com/ggoksu/concourse-pipelines.git
-    branch: master
 - name: source-app
   type: git
-  source:
-    uri: https://github.com/buildpack/sample-java-app
-    branch: master
+  source: {uri: ((source-app))}
+
+- name: pipelines
+  type: git
+  source: {uri: ((pipelines))}
+
 
 jobs:
-- name: job
+- name: build-and-push-app
   public: true
   plan:
-  - get: pipelines
   - get: source-app
-  - task: hello-world
-    file: pipelines/task.yml
+    trigger: true
+  - get: pipelines
+  - task: build-image
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: 
+          repository: ggoksu/pack-image
+          username: ((username))
+          password: ((password))
+          tag: 0.1.0
+      inputs:
+      - name: source-app
+      - name: pipelines
+      outputs:
+      - name: some-files
+      run:
+        path: pipelines/build/build-image.sh
