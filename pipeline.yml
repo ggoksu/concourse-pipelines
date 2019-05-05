@@ -24,10 +24,10 @@ jobs:
       image_resource:
         type: docker-image
         source: 
-          repository: ggoksu/concourse-dind
+          repository: ggoksu/pack-image
           username: ((username))
           password: ((password))
-          tag: latest
+          tag: 0.1.0
       inputs:
       - name: source-app
       - name: pipelines
