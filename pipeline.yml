@@ -18,6 +18,7 @@ jobs:
     trigger: true
   - get: pipelines
   - task: build-image
+    privileged: true
     config:
       platform: linux
       image_resource:
