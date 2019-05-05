@@ -36,3 +36,6 @@ jobs:
         path: pipelines/build/build-image.sh
       params:
         APP: source-app
+        BUILDER: ((builder))
+        TAG: 1.0.0
+        REPOSITORY: ((repository))

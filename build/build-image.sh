@@ -1,7 +1,7 @@
 #!/bin/bash
-set -x 
+set -x -e -u
 pack version
 docker
 env
-cd $APP
-ls
+pack set-default-builder $BUILDER
+pack build $REPOSITORY/$APP:$TAG -p $APP
