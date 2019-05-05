@@ -2,3 +2,4 @@
 set -x 
 pack version
 docker
+env

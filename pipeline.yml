@@ -34,3 +34,5 @@ jobs:
       - name: some-files
       run:
         path: pipelines/build/build-image.sh
+      params:
+        APP: source-app
