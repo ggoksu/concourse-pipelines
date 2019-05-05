@@ -37,6 +37,8 @@ jobs:
         path: pipelines/build/build-image.sh
       params:
         APP: source-app
-        BUILDER: ((builder))
-        TAG: 1.0.0
-        REPOSITORY: ((repository))
+        BUILDER: ((builder)) # cloudfoundry/cnb:bionic
+        TAG: 1.0.0 # harbor'da kullanilacak tag
+        REPOSITORY: ((repository)) #harbor repo
+        PROJECT: ((project)) # harbor proje ismi
+        registry: ((repository)) #insecure_registry flag icin
