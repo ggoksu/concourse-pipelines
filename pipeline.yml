@@ -27,6 +27,7 @@ jobs:
           username: ((username))
           password: ((password))
           tag: 0.1.0
+        privileged: true
       inputs:
       - name: source-app
       - name: pipelines
