@@ -32,7 +32,7 @@ jobs:
       - name: source-app
       - name: pipelines
       outputs:
-      - name: some-files
+      - name: image
       run:
         path: pipelines/build/build-image.sh
       params:
