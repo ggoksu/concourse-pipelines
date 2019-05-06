@@ -10,6 +10,6 @@ start_docker \
   ""
 #log_in "$HARBOR_USER" "$HARBOR_PASS" "$REPOSITORY"
 pack set-default-builder $BUILDER
-pack build $REPOSITORY/$PROJECT/$APP:$TAG -p $APP
+pack build $REGISTRY/$PROJECT/$APP:$TAG -p $APP
 #docker push $REPOSITORY/$PROJECT/$APP:$TAG
-docker save -o image/image.tar $REPOSITORY/$PROJECT/$APP:$TAG
+docker save -o image/image.tar $REGISTRY/$PROJECT/$APP:$TAG

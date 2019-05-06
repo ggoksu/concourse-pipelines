@@ -1,7 +1,7 @@
 ---
 
 resources:
-- name: source-app
+- name: ((app-name))
   type: git
   source: {uri: ((source-app))}
 
@@ -12,7 +12,7 @@ resources:
 - name: registry
   type: registry-image
   source:
-    repository: ((repository))
+    repository: ((registry))/((project))/((app-name))
     username: ((username))
     password: ((password))
 
@@ -20,7 +20,7 @@ jobs:
 - name: build-and-push-app
   public: true
   plan:
-  - get: source-app
+  - get: ((app-name))
     trigger: true
   - get: pipelines
   - task: build-image
@@ -33,37 +33,19 @@ jobs:
           repository: ggoksu/pack-image
           tag: 0.1.0
       inputs:
-      - name: source-app
+      - name: ((app-name))
       - name: pipelines
       outputs:
       - name: image
       run:
         path: pipelines/build/build-image.sh
       params:
-        APP: source-app
+        APP: ((app-name))
         BUILDER: ((builder)) # cloudfoundry/cnb:bionic
         TAG: 1.0.0 # harbor'da kullanilacak tag
-        REPOSITORY: ((repository)) #harbor repo
+        REGISTRY: ((registry)) #harbor repo
         PROJECT: ((project)) # harbor proje ismi
         #HARBOR_USER: ((harbor-user))
         #HARBOR_PASS: ((harbor-pass))
-- name: push-to-harbor
-  public: true
-  plan:
-    - get: pipelines
-      passed: [build-and-push-app]
-      trigger: true
-    - task: deploy
-      config:
-        platform: linux
-        image_resource:
-          type: docker-image
-          source: 
-            repository: busybox
-        inputs:
-        - name: image
-        run:
-          path: pipelines/build/build-image.sh
-    - put: registry
-        
-      
+  - put: registry
+    image: image/image.tar
