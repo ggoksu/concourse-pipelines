@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x -e -u
 pack version
-docker version
+docker
 env
 source /opt/resource/common.sh
 sanitize_cgroups
