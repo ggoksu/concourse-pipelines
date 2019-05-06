@@ -10,5 +10,5 @@ start_docker \
   ""
 
 pack set-default-builder $BUILDER
-pack build $REPOSITORY/$PROJECT/$APP:$TAG -p $APP --publish
+pack build $REPOSITORY/$PROJECT/$APP:$TAG -p $APP
 #docker save -o image/image.tar $REPOSITORY/$APP:$TAG
