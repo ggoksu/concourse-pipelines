@@ -8,7 +8,7 @@ sanitize_cgroups
 start_docker \
 	"$REPOSITORY" \
   ""
-
+log_in "$HARBOR-USER" "$HARBOR-PASS" "$REPOSITORY"
 pack set-default-builder $BUILDER
 pack build $REPOSITORY/$PROJECT/$APP:$TAG -p $APP
 docker push $REPOSITORY/$PROJECT/$APP:$TAG
