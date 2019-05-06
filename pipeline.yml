@@ -42,9 +42,9 @@ jobs:
       params:
         APP: source-app
         BUILDER: ((builder)) # cloudfoundry/cnb:bionic
-        #TAG: 1.0.0 # harbor'da kullanilacak tag
-        #REPOSITORY: ((repository)) #harbor repo
-        #PROJECT: ((project)) # harbor proje ismi
+        TAG: 1.0.0 # harbor'da kullanilacak tag
+        REPOSITORY: ((repository)) #harbor repo
+        PROJECT: ((project)) # harbor proje ismi
         #HARBOR_USER: ((harbor-user))
         #HARBOR_PASS: ((harbor-pass))
 - name: push-to-harbor
