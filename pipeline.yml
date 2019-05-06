@@ -48,4 +48,5 @@ jobs:
         #HARBOR_USER: ((harbor-user))
         #HARBOR_PASS: ((harbor-pass))
   - put: registry
-    image: image/image.tar
+    params:
+      image: image/image.tar
