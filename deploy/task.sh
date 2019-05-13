@@ -42,8 +42,8 @@ if [[ $? -ne 0 ]]; then
   set +e
 fi
 
-export VERSION=$(cat docker-image/tag)
-export IMAGE_REPOSITORY=$(cat docker-image/repository)
+export VERSION=$(cat registry/tag)
+export IMAGE_REPOSITORY=$(cat registry/repository)
 echo "Deploying $IMAGE_REPOSITORY version $VERSION to $ENVIRONMENT."
 
 eval "echo \"$(cat $DEPLOYMENT_MANIFEST)\"" > deployment.yml

@@ -64,13 +64,13 @@ jobs:
   - task: deploy
     file: pipelines/deploy/task.yml
     params:
-      ENVIRONMENT: default
+      ENVIRONMENT: ((namespace))
       PKS_CLUSTER_NAME: ((pks_cluster_name))
       PKS_API_ENDPOINT: ((pks_api_endpoint))
       PKS_USERNAME: ((pks_username))
       PKS_PASSWORD: ((pks_password))
-      DOCKER_REGISTRY_SERVER: ((docker_insecure_registries))
-      DOCKER_REGISTRY_USERNAME: ((docker_registry_user))
-      DOCKER_REGISTRY_PASSWORD: ((docker_registry_pass))
+      DOCKER_REGISTRY_SERVER: ((registry))
+      DOCKER_REGISTRY_USERNAME: ((username))
+      DOCKER_REGISTRY_PASSWORD: ((password))
       DEPLOYMENT_MANIFEST: ((deployment_manifest)) 
-      VSPHERE_STORAGE_CLASS: ((vsphere_storage_class))
+      #VSPHERE_STORAGE_CLASS: ((vsphere_storage_class))
