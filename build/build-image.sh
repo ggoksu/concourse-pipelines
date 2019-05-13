@@ -12,4 +12,5 @@ start_docker \
 pack set-default-builder $BUILDER
 pack build $REGISTRY/$PROJECT/$APP:$TAG -p $APP
 #docker push $REPOSITORY/$PROJECT/$APP:$TAG
+echo "$TAG" > image/tag
 docker save -o image/image.tar $REGISTRY/$PROJECT/$APP:$TAG

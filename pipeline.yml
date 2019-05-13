@@ -5,7 +5,7 @@ resources:
   type: git
   source: {uri: ((source-app))}
 
-- name: pipelines
+- name: pipelines #pipelinelarin alinacagi repo
   type: git
   source: {uri: ((pipelines))}
 
@@ -51,4 +51,7 @@ jobs:
   - put: registry
     params:
       load_file: image/image.tar  
-      load_repository: ((registry))/((project))/((app-name)):((tag))
+      load_repository: ((registry))/((project))/((app-name))
+      load_tag: ((tag))
+      tag_file: ((tag))
+      skip_download: true
