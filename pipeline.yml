@@ -43,7 +43,7 @@ jobs:
       params:
         APP: ((app-name))
         BUILDER: ((builder)) # cloudfoundry/cnb:bionic
-        TAG: 1.0.0 # harbor'da kullanilacak tag
+        TAG: ((tag)) # harbor'da kullanilacak tag
         REGISTRY: ((registry)) #harbor repo
         PROJECT: ((project)) # harbor proje ismi
         #HARBOR_USER: ((harbor-user))
@@ -51,4 +51,4 @@ jobs:
   - put: registry
     params:
       load_file: image/image.tar  
-      load_repository: ((registry))/((project))/((app-name))
+      load_repository: ((registry))/((project))/((app-name)):((tag))
