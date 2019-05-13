@@ -46,12 +46,10 @@ jobs:
         TAG: ((tag)) # harbor'da kullanilacak tag
         REGISTRY: ((registry)) #harbor repo
         PROJECT: ((project)) # harbor proje ismi
-        #HARBOR_USER: ((harbor-user))
-        #HARBOR_PASS: ((harbor-pass))
   - put: registry
     params:
       load_file: image/image.tar  
       load_repository: ((registry))/((project))/((app-name))
       load_tag: ((tag))
-      tag_file: ((tag))
+      tag_file: image/tag
       skip_download: true
