@@ -28,4 +28,4 @@ spec:
         - name: web-app
           image: $IMAGE_REPOSITORY:$VERSION
           ports:
-            - containerPort: 9080
+            - containerPort: 8080

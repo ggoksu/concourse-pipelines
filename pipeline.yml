@@ -73,5 +73,7 @@ jobs:
       DOCKER_REGISTRY_SERVER: ((registry))
       DOCKER_REGISTRY_USERNAME: ((username))
       DOCKER_REGISTRY_PASSWORD: ((password))
-      DEPLOYMENT_MANIFEST: ((deployment_manifest)) 
+      DEPLOYMENT_MANIFEST: ((deployment_manifest))
+      IMAGE: ((registry))/((project))/((app-name))
+      VERSION: ((tag)) 
       #VSPHERE_STORAGE_CLASS: ((vsphere_storage_class))
