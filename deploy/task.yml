@@ -10,4 +10,4 @@ inputs:
 - name: pipelines
 
 run:
-  path: pipelines/tasks/deploy/task.sh
+  path: pipelines/deploy/task.sh
