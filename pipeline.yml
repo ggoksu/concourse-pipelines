@@ -15,6 +15,7 @@ resources:
     repository: ((registry))/((project))/((app-name))
     username: ((username))
     password: ((password))
+    tag: ((tag))
     insecure_registries: [((registry))]
 
 jobs:
@@ -52,4 +53,24 @@ jobs:
       load_repository: ((registry))/((project))/((app-name))
       load_tag: ((tag))
       tag_file: image/tag
-      skip_download: true
+      get_params: {skip_download: true}
+- name: deploy-to-pks
+  public: true
+  plan:
+  - get: pipelines
+  - get: registry
+    trigger: true
+    passed: [build-and-push-app]
+  - task: deploy
+    file: pipelines/deploy/task.yml
+    params:
+      ENVIRONMENT: default
+      PKS_CLUSTER_NAME: ((pks_cluster_name))
+      PKS_API_ENDPOINT: ((pks_api_endpoint))
+      PKS_USERNAME: ((pks_username))
+      PKS_PASSWORD: ((pks_password))
+      DOCKER_REGISTRY_SERVER: ((docker_insecure_registries))
+      DOCKER_REGISTRY_USERNAME: ((docker_registry_user))
+      DOCKER_REGISTRY_PASSWORD: ((docker_registry_pass))
+      DEPLOYMENT_MANIFEST: ((deployment_manifest)) 
+      VSPHERE_STORAGE_CLASS: ((vsphere_storage_class))
