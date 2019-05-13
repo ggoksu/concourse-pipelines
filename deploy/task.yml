@@ -5,6 +5,7 @@ image_resource:
   type: docker-image
   source:
     repository: harbor.sandbox.demo1.pocs.pcfs.io/build-images/automatio-tools
+    insecure_registries: [((registry))]
 
 inputs:
 - name: pipelines
