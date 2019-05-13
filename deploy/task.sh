@@ -2,11 +2,11 @@
 
 set -xu
 
-curl -L https://s3.amazonaws.com/mevansam-software/pivotal/kubectl -o /usr/local/bin/kubectl
-chmod +x /usr/local/bin/kubectl
+# curl -L https://s3.amazonaws.com/mevansam-software/pivotal/kubectl -o /usr/local/bin/kubectl
+# chmod +x /usr/local/bin/kubectl
 
-curl -L https://s3.amazonaws.com/mevansam-software/pivotal/pks -o /usr/local/bin/pks
-chmod +x /usr/local/bin/pks
+# curl -L https://s3.amazonaws.com/mevansam-software/pivotal/pks -o /usr/local/bin/pks
+# chmod +x /usr/local/bin/pks
 
 pks login --skip-ssl-validation \
   --api $PKS_API_ENDPOINT \

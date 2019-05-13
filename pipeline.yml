@@ -5,7 +5,7 @@ resources:
   type: git
   source: {uri: ((source-app))}
 
-- name: pipelines #pipelinelarin alinacagi repo
+- name: pipelines #pipeline'larin alinacagi repo
   type: git
   source: {uri: ((pipelines))}
 
