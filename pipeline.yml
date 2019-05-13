@@ -59,6 +59,7 @@ jobs:
   plan:
   - get: pipelines
   - get: registry
+    params: {skip_download: true}
     trigger: true
     passed: [build-and-push-app]
   - task: deploy
