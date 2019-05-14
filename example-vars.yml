@@ -1,0 +1,16 @@
+
+pipelines: https://github.com/ggoksu/concourse-pipelines.git #pipelines
+source-app: https://github.com/buildpack/sample-java-app # source app to build and deploy to pks
+app-name: my-app #name of the app
+username: pks-admin #harbor-username
+password: ********* #harbor-password
+registry: harbor.sandbox.demo1.pocs.pcfs.io #harbor registry
+project: applications #harbor project
+tag: 1.0.0 #image tag
+builder: cloudfoundry/cnb:bionic #builder to build the app
+namespace: default #namespace to deploy app
+pks_cluster_name: pks-nonprod #cluster to deploy app
+pks_api_endpoint: pks.sandbox.demo1.pocs.pcfs.io #pks api endpoint (get from opsmanager > pks)
+pks_username: pks-admin #pks-username
+pks_password: ********** #pks-password
+deployment_manifest: pipelines/manifest/deployment.yml #k8s deployment manifest
