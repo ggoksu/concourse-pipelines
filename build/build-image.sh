@@ -12,8 +12,7 @@ start_docker \
 echo 'LS'
 ls $APP
 pack set-default-builder $BUILDER
-$APP/mvnw package
-pack build $REGISTRY/$PROJECT/$APP:$TAG -p $APP/target/sample-0.0.1-SNAPSHOT.jar
+pack build $REGISTRY/$PROJECT/$APP:$TAG -p $APP
 #docker push $REPOSITORY/$PROJECT/$APP:$TAG
 echo "$TAG" > image/tag
 docker save -o image/image.tar $REGISTRY/$PROJECT/$APP:$TAG
