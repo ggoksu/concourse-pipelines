@@ -3,7 +3,10 @@
 resources:
 - name: ((app-name))
   type: git
-  source: {uri: ((source-app))}
+  source:
+    uri: ((source-app))
+    paths:
+      - apps/java-maven
 
 - name: pipelines #pipeline'larin alinacagi repo
   type: git
