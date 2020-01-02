@@ -9,6 +9,7 @@ start_docker \
 	"$REGISTRY" \
   ""
 #log_in "$HARBOR_USER" "$HARBOR_PASS" "$REPOSITORY"
+cd samples/apps/java-maven
 pack set-default-builder $BUILDER
 pack build $REGISTRY/$PROJECT/$APP:$TAG -p $APP
 #docker push $REPOSITORY/$PROJECT/$APP:$TAG

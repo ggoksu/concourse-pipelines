@@ -32,8 +32,8 @@ jobs:
       image_resource:
         type: docker-image
         source: 
-          repository: ggoksu/pack-image
-          tag: 0.1.0
+          repository: harbor.pcf.ggoksu.com/buildservice/pack-cli
+          tag: 0.6.0
       inputs:
       - name: ((app-name))
       - name: pipelines
