@@ -9,8 +9,9 @@ start_docker \
 	"$REGISTRY" \
   ""
 #log_in "$HARBOR_USER" "$HARBOR_PASS" "$REPOSITORY"
+echo 'LS'
 ls
-pack set-default-builder $BUILDER
+#pack set-default-builder $BUILDER
 pack build $REGISTRY/$PROJECT/$APP:$TAG -p $APP/apps/java-maven
 #docker push $REPOSITORY/$PROJECT/$APP:$TAG
 echo "$TAG" > image/tag
